@@ -1,0 +1,100 @@
+{
+  "name": "@skhemata/skhemata-faq",
+  "version": "1.1.0",
+  "description": "Skhemata FAQ Web Component. This web component provides website FAQ functionality with question and answer style of FAQ.",
+  "author": "skhemata-faq",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "license": "https://raw.githubusercontent.com/skhemata/skhemata-faq/master/LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skhemata/skhemata-faq.git"
+  },
+  "keywords": [
+    "skhemata",
+    "faq",
+    "web component"
+  ],
+  "scripts": {
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "build": "tsc",
+    "prepublish": "tsc",
+    "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
+    "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
+    "test": "tsc && wtr --coverage",
+    "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
+    "storybook": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
+    "storybook:build": "tsc && build-storybook"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@open-wc/scoped-elements": "^2.0.0-next.3",
+    "@riovir/wc-fontawesome": "^0.1.6",
+    "@skhemata/skhemata-base": "^1.1.0",
+    "@skhemata/skhemata-form": "^1.1.0",
+    "@types/lodash": "^4.14.168",
+    "lit": "^2.0.0-rc.2",
+    "lit-html": "^2.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@open-wc/eslint-config": "^4.3.0",
+    "@open-wc/prettier-config": "^0.1.10",
+    "@open-wc/testing": "^2.5.33",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "@web/dev-server": "^0.1.17",
+    "@web/dev-server-storybook": "^0.3.6-next.0",
+    "@web/test-runner": "^0.12.20",
+    "concurrently": "^5.3.0",
+    "deepmerge": "^3.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^7.2.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "postcss-nested": "^5.0.5",
+    "prettier": "^2.2.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ],
+      "import/no-unresolved": "off",
+      "import/extensions": "off"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix --quiet",
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

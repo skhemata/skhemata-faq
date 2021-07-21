@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/skhemata-faq.js';
+
+    const title = 'Skhemata Faq';
+    render(
+      html`
+        <skhemata-faq
+          faq-title="DevRadius Faq"
+          api-wordpress="${JSON.stringify({url: 'https://wp.thrinacia.com/wp-json/wp/v2'})}"
+          faq-page-path="demo"
+          faq-post-path="post"
+          posts-per-page="20"
+        ></skhemata-faq>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
