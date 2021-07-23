@@ -20,7 +20,7 @@ const Template: Story<ArgTypes> = ({
     url: 'https://wp.thrinacia.com/wp-json/wp/v2',
   },
   postsPerPage = 10,
-  pagerType = '',
+  pagerType = 'infinite',
   skhemataFaqTextColor,
   skhemataFaqListTitleColor,
 }: ArgTypes) => html`

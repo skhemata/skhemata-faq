@@ -94,6 +94,19 @@ export class SkhemataFaqList extends SkhemataBase {
     );
   }
 
+  willUpdate(changedProperties: Map<string, any>){
+    if(changedProperties.has('apiWordpress')){
+      this.getPosts();
+    }
+    if(changedProperties.has('postsPerPage')){
+      this.getPosts();
+    }
+    if(changedProperties.has('pagerType')){
+      this.getPosts();
+    }
+    super.willUpdate(changedProperties);
+  }
+
   /**
    * Implement `render` to define a template for your element.
    * Use JS template literals
