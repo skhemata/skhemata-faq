@@ -144,7 +144,13 @@ export class SkhemataFaqList extends SkhemataBase {
       count += 1;
     }
 
-    const pagination = html`<div class="traditional-pager">${previous}${previousPages}<button @click="" class="button" ><b>${page}</b></button>${nextPages}${next}</div>`;
+    let pagination = html``;
+    if (this.totalPages > 1) {
+      pagination = html`
+      <div class="traditional-pager">
+        ${previous}${previousPages}<button @click="" class="button" ><b>${page}</b></button>${nextPages}${next}
+      </div>`;
+    }
 
     return html`
       <div class="faq-list block">
