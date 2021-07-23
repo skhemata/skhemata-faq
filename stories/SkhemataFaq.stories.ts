@@ -26,7 +26,7 @@ const Template: Story<ArgTypes> = ({
   },
   faqPagePath = '',
   postsPerPage = 10,
-  pagerType = '',
+  pagerType = 'infinite',
   slug = '',
   skhemataFaqTextColor,
   skhemataFaqListTitleColor,

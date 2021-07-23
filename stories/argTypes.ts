@@ -49,7 +49,7 @@ export const argTypes = {
   },
   pagerType: {
     name: 'pager-type',
-    control: 'string',
+    control: 'text',
     table: {
       category: category.attributes,
       type: {
