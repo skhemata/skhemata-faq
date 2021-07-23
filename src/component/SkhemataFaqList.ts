@@ -5,7 +5,7 @@
  */
 
 // Import litelement base class, html helper function & typescript decorators
-import { SkhemataBase, property, html, CSSResult } from '@skhemata/skhemata-base';
+import { SkhemataBase, property, html, css, CSSResult } from '@skhemata/skhemata-base';
 
 // Import custom font awesome dependencies
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -63,6 +63,11 @@ export class SkhemataFaqList extends SkhemataBase {
       ...super.styles,
       SkhemataFaqListStyles,
       SkhemataFaqSharedStyles,
+      css`
+        .traditional-pager {
+          text-align: center;
+        }
+      `,
     ];
   }
 
@@ -126,7 +131,7 @@ export class SkhemataFaqList extends SkhemataBase {
       if(count > leadingTrailingCount) {
         break;
       }
-      previousPages = html`<button @click="${(event) => this.goToButtonPage(event)}" page-value="${page-count}"  class="button" >${page-count}</button>${previousPages}`;
+      previousPages = html`<button @click="${(event: any) => this.goToButtonPage(event)}" page-value="${page-count}"  class="button" >${page-count}</button>${previousPages}`;
       count += 1;
     }
     
@@ -135,11 +140,11 @@ export class SkhemataFaqList extends SkhemataBase {
       if(count > leadingTrailingCount) {
         break;
       }
-      nextPages = html`${nextPages}<button @click="${(event) => this.goToButtonPage(event)}" page-value="${page+count}" class="button" >${page+count}</button>`;
+      nextPages = html`${nextPages}<button @click="${(event: any) => this.goToButtonPage(event)}" page-value="${page+count}" class="button" >${page+count}</button>`;
       count += 1;
     }
 
-    const pagination = html`${previous}${previousPages}<button @click="" class="button" ><b>${page}</b></button>${nextPages}${next}`;
+    const pagination = html`<div class="traditional-pager">${previous}${previousPages}<button @click="" class="button" ><b>${page}</b></button>${nextPages}${next}</div>`;
 
     return html`
       <div class="faq-list block">
@@ -277,7 +282,7 @@ export class SkhemataFaqList extends SkhemataBase {
       });
   }
 
-  private goToButtonPage(event) {
+  private goToButtonPage(event: any) {
     let page = 1;
     const buttonValue = event.target.attributes["page-value"].value;
     if(buttonValue != null) {
@@ -286,7 +291,7 @@ export class SkhemataFaqList extends SkhemataBase {
     this.setPageNumber(page);
   }
 
-  private setPageNumber(page) {
+  private setPageNumber(page: any) {
     let setPage = page;
     if(setPage < 1) {
       setPage = 1;
