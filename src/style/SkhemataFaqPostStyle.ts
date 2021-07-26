@@ -47,13 +47,10 @@ export const SkhemataFaqPostStyles = <CSSResult>css`
     max-width: 95%;
   }
 
-  .faq-post-content.content h1,
-  .faq-post-content.content h2,
-  .faq-post-content.content h3,
-  .faq-post-content.content h4,
-  .faq-post-content.content h5,
-  .faq-post-content.content h6,
-  .faq-post-title.title {
-    color: var(--skhemata-faq-post-heading-color, rgb(54, 54, 54));
+
+  .answer.content {
+    overflow: hidden;
+    word-wrap: break-word;
+  }
   
   `;
