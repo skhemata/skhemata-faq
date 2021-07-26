@@ -7,6 +7,7 @@ export interface API {
 export interface ArgTypes {
   apiWordpress?: API;
   postsPerPage?: number;
+  pagerType?: string;
   faqPagePath?: string;
   postPagePath?: string;
   slug?: string;
@@ -45,6 +46,18 @@ export const argTypes = {
       },
     },
     description: 'Wordpress API Object',
+  },
+  pagerType: {
+    name: 'pager-type',
+    control: 'text',
+    table: {
+      category: category.attributes,
+      type: {
+        summary: 'string',
+      },
+    },
+    description:
+      'Pager type "traditional" for previous and next pages and page number display, "infinite" for a "Show More..." button.',
   },
   postsPerPage: {
     name: 'posts-per-page',

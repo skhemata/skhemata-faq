@@ -8,6 +8,7 @@ export default {
   argTypes: {
     apiWordpress: argTypes.apiWordpress,
     postsPerPage: argTypes.postsPerPage,
+    pagerType: argTypes.pagerType,
     faqPagePath: argTypes.faqPagePath,
     slug: argTypes.slug,
     navigate: argTypes.navigate,
@@ -25,6 +26,7 @@ const Template: Story<ArgTypes> = ({
   },
   faqPagePath = '',
   postsPerPage = 10,
+  pagerType = 'infinite',
   slug = '',
   skhemataFaqTextColor,
   skhemataFaqListTitleColor,
@@ -43,6 +45,7 @@ const Template: Story<ArgTypes> = ({
     .apiWordpress=${apiWordpress}
     .faqPagePath=${faqPagePath}
     .postsPerPage=${postsPerPage}
+    .pagerType=${pagerType}
     .slug=${slug}
   >
   </skhemata-faq>
@@ -54,6 +57,7 @@ Example.args = {
     url: 'https://wp.thrinacia.com/wp-json/wp/v2',
   },
   postsPerPage: 10,
+  pagerType: "infinite",
 };
 
 Example.parameters = {
@@ -67,6 +71,7 @@ Example.parameters = {
   )}"
   faq-page-path=""
   posts-per-page="${Example.args.postsPerPage}"
+  pager-type="${Example.args.pagerType}"
   slug=""
 >
 </skhemata-faq>

@@ -28,6 +28,9 @@ export class SkhemataFaq extends SkhemataBase {
 
   @property({ type: Number, attribute: 'posts-per-page' })
   postsPerPage = 20;
+  
+  @property({ type: String, attribute: 'pager-type' })
+  pagerType = "infinite";
 
   @property({ type: String })
   slug?: string = '';
@@ -142,7 +145,8 @@ export class SkhemataFaq extends SkhemataBase {
                 <skhemata-faq-list
                   .apiWordpress=${this.apiWordpress}
                   .faqPagePath=${this.faqPagePath}
-                  postsPerPage=${this.postsPerPage}
+                  .postsPerPage=${this.postsPerPage}
+                  .pagerType=${this.pagerType}
                   @navigate=${this.handleNavigate}
                   .translationData=${this.translationData}
                 ></skhemata-faq-list>
