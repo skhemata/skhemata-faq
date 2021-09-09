@@ -12,7 +12,7 @@ import { SkhemataFaqPostStyles } from '../style/SkhemataFaqPostStyle';
 import { SkhemataFaqSharedStyles } from '../style/SkhemataFaqSharedStyle';
 
 // Import custom font awesome dependencies
-import { faCalendarAlt, faUser, faTag } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faUser, faFolder } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@riovir/wc-fontawesome';
 
 // Import custom element directives
@@ -114,7 +114,7 @@ export class SkhemataFaqPost extends SkhemataBase {
         <div class="column faq-tags">
         ${this.faqPost.tags
           ?
-            html`<fa-icon .icon=${faTag}></fa-icon> ${this.getStr('SkhemataFaqPost.tags')}: ${
+            html`<fa-icon .icon=${faFolder}></fa-icon> ${this.getStr('SkhemataFaqPost.categories')}: ${
             this.faqPost.tags[0].map(
                 (item: any, index: Number, arr: any) => html`
                   <a
