@@ -1,6 +1,6 @@
 {
   "name": "@skhemata/skhemata-faq",
-  "version": "1.2.6",
+  "version": "1.3.0",
   "description": "Skhemata FAQ Web Component. This web component provides website FAQ functionality with question and answer style of FAQ.",
   "author": "skhemata-faq",
   "main": "dist/index.js",
