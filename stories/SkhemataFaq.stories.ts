@@ -18,6 +18,19 @@ export default {
     skhemataFaqCategoriesBackgroundColor:
       argTypes.skhemataFaqCategoriesBackgroundColor,
   },
+  parameters: {
+    widgetCode: `
+      <skhemata-faq
+      faq-title="DevRadius Faq"
+      api-wordpress='{"url": "https://wp.thrinacia.com/wp-json/wp/v2"}'
+      faq-page-path="demo"
+      faq-post-path="post"
+      posts-per-page="20"
+      ></skhemata-faq>
+
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@skhemata/skhemata-faq@latest/build/index.js"></script> 
+    `,
+  },
 };
 
 const Template: Story<ArgTypes> = ({
